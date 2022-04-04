@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+
+
+</head>
+
+<body style="background-color: rgb(119, 94, 61);">
+    <p>Digite a quantidade de números:</p> <input class="form" type="number" id="qtdnum"><br><br>
+    <p>Digite a quantidade de colunas:</p> <input  class="form" type="number" id="colunas"><br><br>
+    <p>Digite o menor valor que o intervalo terá:</p> <input  class="form" type="number" id="num1"><br><br>
+    <p>Digite o maior valor que o intervalo terá:</p> <input class="form" type="number" id="num2"><br><br>
+    <button onclick="resposta()">Gerar tabela</button>
+    <pre id="tabela">
+    </pre>
+    <script>
+    function resposta (){
+        const min = parseInt(document.getElementById('num1').value);
+        const max = parseInt(document.getElementById('num2').value);
+        const tabela  = document.getElementById('tabela');
+        const qtdnum = document.getElementById('qtdnum').value;
+        const colunas = document.getElementById('colunas').value;
+        tabela.innerHTML = "";
+        for (let i = 1; i <=qtdnum; i++){
+            tabela.innerHTML += Math.trunc(Math.random() * (max - min) + min ) + "\t";
+        if (i % colunas == 0) {
+            tabela.innerHTML += "\n";
+        }
+    }
+
+    }    
+    </script>
+</body>
+</html>
